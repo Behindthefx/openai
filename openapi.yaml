@@ -1,0 +1,55 @@
+openapi: 3.0.1
+info:
+  title: NGSS Standards Lookup
+  version: 1.0.0
+  description: Get NGSS standards by grade level and science topic.
+servers:
+  - url: https://<your-app>.glitch.me  # Change this!
+paths:
+  /ngss:
+    get:
+      summary: Retrieve NGSS standards
+      operationId: getNgssStandards
+      parameters:
+        - name: grade
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: topic
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: topic
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A list of matched NGSS standards
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  standards:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                        description:
+                          type: string
