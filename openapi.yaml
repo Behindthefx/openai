@@ -8,6 +8,7 @@ servers:
 paths:
   /ngss:
     get:
+      operationId: getNgssStandards
       summary: Retrieve NGSS standards
       description: Returns a list of NGSS standards filtered by grade and topic keyword.
       parameters:
