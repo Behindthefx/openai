@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   description: Search NGSS standards by grade and topic.
 servers:
-  - url: https://aquamarine-faithful-tango.glitch.me
+  - url: https://24c895e9-3b8b-417a-8d04-e77e0c81b7a0-00-3o3pchd5drssy.kirk.replit.dev
 paths:
   /ngss:
     get:
