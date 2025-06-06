@@ -1,44 +1,31 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
-  title: NGSS Standards Lookup
+  title: NGSS Standards API
   version: 1.0.0
-  description: Get NGSS standards by grade level and science topic.
+  description: Search NGSS standards by grade and topic.
 servers:
-  - url: https://<your-app>.glitch.me  # Change this!
+  - url: https://aquamarine-faithful-tango.glitch.me
 paths:
   /ngss:
     get:
       summary: Retrieve NGSS standards
-      operationId: getNgssStandards
+      description: Returns a list of NGSS standards filtered by grade and topic keyword.
       parameters:
         - name: grade
           in: query
           required: true
           schema:
             type: string
+          description: Grade level (e.g., k, 1, 2, 3, 4, 5)
         - name: topic
           in: query
           required: true
           schema:
             type: string
-        - name: topic
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: code
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: limit
-          in: query
-          required: true
-          schema:
-            type: string
+          description: Topic keyword to search in the description
       responses:
-        "200":
-          description: A list of matched NGSS standards
+        '200':
+          description: Successful response with matched standards
           content:
             application/json:
               schema:
@@ -51,5 +38,9 @@ paths:
                       properties:
                         code:
                           type: string
+                          example: "K-PS2-1"
                         description:
                           type: string
+                          example: "Plan and conduct an investigation to compare the effects of different strengths..."
+        '400':
+          description: Missing or invalid parameters
