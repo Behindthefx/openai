@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: NGSS Standards API
   version: 1.0.0
@@ -42,6 +42,6 @@ paths:
                           example: "K-PS2-1"
                         description:
                           type: string
-                          example: "Plan and conduct an investigation to compare the effects of different strengths..."
+                          example: "Plan and conduct an investigation to compare the effects..."
         '400':
           description: Missing or invalid parameters
