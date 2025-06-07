@@ -7,6 +7,10 @@ app = FastAPI()
 with open("ngss.json", "r") as f:
     ngss_data = json.load(f)
 
+@app.get("/")
+def root():
+    return {"message": "NGSS API is running. Use /ngss?topic=motion&grade=5"}
+
 @app.get("/ngss")
 def search_ngss(topic: str, grade: str):
     matches = [
