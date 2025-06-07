@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 import json
 
 app = FastAPI()
@@ -14,5 +13,5 @@ def search_ngss(topic: str, grade: str):
         item for item in ngss_data
         if topic.lower() in item["description"].lower() and item["grade"] == grade
     ]
-    return {"results": matches}
+    return {"results": results}
 
