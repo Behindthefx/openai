@@ -3,9 +3,12 @@ import json
 
 app = FastAPI()
 
-# Load the NGSS data once at startup
-with open("ngss.json", "r") as f:
-    ngss_data = json.load(f)
+try:
+    with open("ngss.json", "r") as f:
+        ngss_data = json.load(f)
+except Exception as e:
+    ngss_data = []
+    print("Failed to load NGSS data:", e)
 
 @app.get("/")
 def root():
