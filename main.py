@@ -4,7 +4,7 @@ import json
 app = FastAPI()
 
 # Load cleaned NGSS data
-with open("ngss_clean.json", "r") as f:
+with open("ngss.json", "r") as f:
     ngss_data = json.load(f)
 
 @app.get("/")
