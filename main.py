@@ -13,8 +13,8 @@ def root():
 
 @app.get("/ngss")
 def get_ngss(topic: str, grade: str):
-    matches = [
+    results = [
         item for item in ngss_data
         if topic.lower() in item["description"].lower() and item["grade"] == grade
     ]
-    return {"results": matches}
+    return {"results": results}
