@@ -1,47 +1,41 @@
 openapi: 3.1.0
 info:
-  title: NGSS Standards API
+  title: NGSS Science Standards API
   version: 1.0.0
-  description: Search NGSS standards by grade and topic.
 servers:
-  - url: https://24c895e9-3b8b-417a-8d04-e77e0c81b7a0-00-3o3pchd5drssy.kirk.replit.dev
+  - url: https://ngss-api.onrender.com
 paths:
   /ngss:
     get:
-      operationId: getNgssStandards 
-      summary: Retrieve NGSS standards
-      description: Returns a list of NGSS standards filtered by grade and topic keyword.
+      summary: Search NGSS standards
+      operationId: searchNGSS
       parameters:
-        - name: grade
-          in: query
-          required: true
-          schema:
-            type: string
-          description: Grade level (e.g., k, 1, 2, 3, 4, 5)
         - name: topic
           in: query
           required: true
           schema:
             type: string
-          description: Topic keyword to search in the description
+          description: Science topic (e.g. "motion", "energy", "weather")
+        - name: grade
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Grade level (e.g. "3", "5", "K")
       responses:
         '200':
-          description: Successful response with matched standards
+          description: A list of matching NGSS standards
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  standards:
+                  results:
                     type: array
                     items:
                       type: object
                       properties:
-                        code:
+                        grade:
                           type: string
-                          example: "K-PS2-1"
                         description:
                           type: string
-                          example: "Plan and conduct an investigation to compare the effects..."
-        '400':
-          description: Missing or invalid parameters
