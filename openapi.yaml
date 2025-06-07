@@ -37,5 +37,9 @@ paths:
                       properties:
                         grade:
                           type: string
+                        code:
+                          type: string
+                          description: NGSS identifier (e.g. "5-PS2-1")
                         description:
                           type: string
+                          description: A summary of the standard
